@@ -84,7 +84,7 @@ while( $res = fgets($fp)){
         <textarea class="honbun" name="sentence" id="body" rows="8" cols="80"></textarea>
         <br>
         <input class="input" type="submit" name="SUBMIT" value="投稿">
-        <input type="reset" value="リセット">
+        <input class="input" type="reset" value="リセット">
 
       </form>
     </div>
