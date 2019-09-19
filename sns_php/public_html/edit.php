@@ -46,7 +46,7 @@ $app->run();
     <form action="" method="post" enctype="multipart/form-data" id="postform">
       <?=h($app->me()->username); ?><br>
       <?=h($app->me()->email); ?><br>
-      <input type="hidden" name="username" value="<?= h($app->me()->username); ?>">
+      <input type="hidden" name="id" value="<?= h($app->me()->id); ?>">
       <img src="../picture/icon/<?=h($app->me()->icon); ?>" style="margin:0; border:2px black solid; width:50px; height:50px; display:inline-block;">
       <input type="file" name="upload_file">
       <br>
