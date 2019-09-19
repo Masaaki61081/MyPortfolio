@@ -16,10 +16,10 @@ class User extends \MyApp\Model {
     }
   }
   public function new_icon($values) {
-    $stmt = $this->db->prepare("UPDATE users SET icon= :icon, modified=now() WHERE username=:username");
+    $stmt = $this->db->prepare("UPDATE users SET icon= :icon, modified=now() WHERE id=:id");
     $res = $stmt->execute([
       ':icon' => $values['icon'],
-      ':username' => $values['username']
+      ':id' => $values['id']
     ]);
     if ($res === false) {
       throw new \MyApp\Exception\WriteError();
@@ -41,6 +41,17 @@ class User extends \MyApp\Model {
     if (!password_verify($values['password'], $user->password)) {
       throw new \MyApp\Exception\UnmatchEmailOrPassword();
     }
+
+    return $user;
+  }
+
+  public function reLogin($values) {
+    $stmt = $this->db->prepare("select * from users where id = :id");
+    $res = $stmt->execute([
+      ':id' => $values['id']
+    ]);
+    $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
+    $user = $stmt->fetch();
 
     return $user;
   }
