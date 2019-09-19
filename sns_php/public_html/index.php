@@ -107,7 +107,7 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
         <li style="<?php if($i == $page) echo "font-weight:bolder; "; ?>display: inline-block;">
           <?php if($i != $page) echo "<a href =\"index.php?page=$i\">"; ?>
           <?php echo $i ?>
-          <?php if($i != $page) echo "</a>" ?> 
+          <?php if($i != $page) echo "</a>" ?>
         </li>
       <?php endfor; ?>
 
