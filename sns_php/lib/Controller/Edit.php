@@ -38,7 +38,7 @@ class Edit extends \MyApp\Controller {
     }else{
       // create user
       try {
-        $username = $_POST['username'];
+        $id = $_POST['id'];
         $icon = $_FILES['upload_file']['name'];
 
         $upload = '../picture/icon/'.$_FILES['upload_file']['name'];
@@ -47,13 +47,20 @@ class Edit extends \MyApp\Controller {
 
 
 
-        $threadModel = new \MyApp\Model\User();
-        $threadModel->new_icon([
+        $userModel = new \MyApp\Model\User();
+        $userModel->new_icon([
           'icon' => $icon,
-          'username' => $username
+          'id' => $id
         ]);
+
+        $user = $userModel->reLogin([
+          'id' => $_POST['id']
+        ]);
+        session_regenerate_id(true);
+        $_SESSION['me'] = $user;
+
       } catch (\MyApp\Exception\WriteError $e) {
-        $this->setErrors('write', $e->getMessage() . $username . $icon);
+        $this->setErrors('write', $e->getMessage() . $id . $icon);
         return;
       }
       // redirect to login
