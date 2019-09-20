@@ -5,7 +5,7 @@
     <title>掲示板</title>
   </head>
   <body>
-    <a href="public_html/index.php">利用する</a>
+    <a href="public_html/index.php">利用</a>
 
   </body>
 </html>
