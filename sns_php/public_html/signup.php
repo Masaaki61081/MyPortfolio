@@ -17,10 +17,11 @@ $app->run();
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="wrapper">
   <div id="container">
     <form action="" method="post" id="signup">
       <p>
-          <input type="text" name="username" placeholder="username" value="<?= isset($app->getValues()->username) ? h($app->getValues()->username) : ''; ?>">
+        <input type="text" name="username" placeholder="username" value="<?= isset($app->getValues()->username) ? h($app->getValues()->username) : ''; ?>">
       </p>
       <p class="err"><?= h($app->getErrors('username')); ?></p>
       <p>
@@ -33,9 +34,10 @@ $app->run();
       <p class="err"><?= h($app->getErrors('password')); ?></p>
       <div class="btn" onclick="document.getElementById('signup').submit();">Sign Up</div>
       <p class="fs12"><a href="/public_html/login.php">Log In</a></p>
-            <!-- <input class="input" type="submit" name="SUBMIT" value="投稿"> -->
+      <!-- <input class="input" type="submit" name="SUBMIT" value="投稿"> -->
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
   </div>
+</div>
 </body>
 </html>

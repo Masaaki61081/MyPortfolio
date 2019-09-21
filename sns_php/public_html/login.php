@@ -20,6 +20,7 @@ $app->run();
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="wrapper">
   <div id="container">
     <form action="" method="post" id="login">
       <p>
@@ -34,5 +35,6 @@ $app->run();
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
   </div>
+</div>
 </body>
 </html>
