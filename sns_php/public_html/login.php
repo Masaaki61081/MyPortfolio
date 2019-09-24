@@ -30,8 +30,8 @@ $app->run();
         <input type="password" name="password" placeholder="password">
       </p>
       <p class="err"><?= h($app->getErrors('login')); ?></p>
-      <div class="btn" onclick="document.getElementById('login').submit();">Log In</div>
-      <p class="fs12"><a href="/public_html/signup.php">Sign Up</a></p>
+      <div class="button_submit" onclick="document.getElementById('login').submit();">Log In</div>
+      <p class="button_submit"><a href="/public_html/signup.php">Sign Up</a></p>
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>
   </div>

@@ -13,7 +13,7 @@ $(function () {
   });
 
   // メニュー領域外をクリックしたらメニューを閉じる
-  $('body').click(function() {
+  $('html').click(function() {
     if (over_flg === false) {
       $('.menu').slideUp(60);
     }

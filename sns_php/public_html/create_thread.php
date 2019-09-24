@@ -73,14 +73,14 @@ $app->run();
         </nav>
       </div>
     </div>
+
     <div class="container">
       <div class="window">
         <div class="window_title">
           <h2>新規スレッド</h2>
         </div>
         <div class="window_content">
-          <input type="submit" onclick="location.href='./index.php'" name="" value="スレッド一覧へ">
-
+          <input class="button" type="button" onclick="location.href='./index.php'" name="" value="スレッド一覧へ">
           <form class="postform" action=""   method="post" id="postform">
             <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
             <input type="hidden" name="createdby" value="<?= h($app->me()->id); ?>">
@@ -91,9 +91,9 @@ $app->run();
             <textarea class="content" name="content" id="content" rows="8" cols="80"></textarea>
             <br>
             <p class="err"><?= h($app->getErrors('write')); ?></p>
-            <div class="btn" onclick="document.getElementById('postform').submit();">作成</div>
-            <input class="input" type="reset" value="リセット">
-          </form>  
+            <div class="button_submit" onclick="document.getElementById('postform').submit();">作成</div>
+            <div class="button_submit" onclick="document.getElementById('postform').reset();">リセット</div>
+          </form>
         </div>
       </div>
     </div>

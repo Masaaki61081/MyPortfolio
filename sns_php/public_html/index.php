@@ -32,7 +32,9 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
   <title>Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/style_sp.css" media="screen and (min-width: 960px)">
+  <link rel="stylesheet" href="css/style_tab.css" media="screen and (max-width: 960px)">
+  <link rel="stylesheet" href="css/style_pc.css" media="screen and (max-width: 600px)">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="menu.js"></script>
 </head>
@@ -54,7 +56,7 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
               </div>
               <div class="menu_userinfo_text">
                 <p>
-                  <?= h($app->me()->username) ?>
+                  <?= h($app->me()->username) ?><br>
                   <?= h($app->me()->email) ?>
                 </p>
               </div>
@@ -99,103 +101,116 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
           <h2>スレッド一覧</h2>
         </div>
         <div class="window_content">
-          <input type="submit" onclick="location.href='./create_thread.php'" name="" value="新しいスレッドをたてる">
           <br>
           <div class="thread_list">
             <ul>
               <?php foreach ($thread_list_page as $thread): ?>
                 <li>
                   <a href ="thread.php?thread_id= <?= h($thread['id']) ?> ">
-                    <div class="thread">
-                      <?= h($thread['id'].":")?><?=h($thread['title'])?>
+                    <div class="thread_list_item">
+                      <div class="thread_list_item_title">
+                        <?= h($thread['id'].":")?><?=h($thread['title'])?>
+                        <span class="thread_list_item_info">
+                        最終更新日:
+                        </span>
+                      </div>
+                      <div class="thread_list_item_content">
+                        <div class="thread_list_item_content_user">
+                          ユーザー情報<?= h($thread['createdby']) ?>
+                        </div>
+                        <div class="thread_list_item_content_text">
+                          本文
+                        </div>
+
+                      </div>
                     </div>
                   </a>
                 </li>
               <?php endforeach; ?>
             </ul>
           </div>
-
-          <dl>
-            <?php
-            if ($page == 1) {
-              echo "
-              <li style=\"display: inline-block;\">
-              <p>先頭へ</p>
-              </li>
-              ";
-            }else{
-              echo "
-              <li style=\"display: inline-block;\">
-              <a href =\"index.php?page=1\">
-              <p>先頭へ</p>
-              </a>
-              </li>
-              ";
-            }
-            if ($page == 1) {
-              echo "
-              <li style=\"display: inline-block;\">
-              <p>前へ</p>
-              </li>
-              ";
-            }else{
-              echo "
-              <li style=\"display: inline-block;\">
-              <a href =\"index.php?page=$pre_page\">
-              <p>前へ</p>
-              </a>
-              </li>
-              ";
-            }
-            ?>
-
-            <?php for ($i=1; $i<=$last_page; $i++) : ?>
-              <li style="<?php if($i == $page) echo "font-weight:bolder; "; ?>display: inline-block;">
-                <?php if($i != $page) echo "<a href =\"index.php?page=$i\">"; ?>
-                  <?php echo $i ?>
-                  <?php if($i != $page) echo "</a>" ?>
-                </li>
-              <?php endfor; ?>
-
+          <input class="button" type="submit" onclick="location.href='./create_thread.php'" name="" value="新しいスレッドをたてる">
+          <div class="pagination">
+            <ul>
               <?php
-              if ($page == $last_page) {
+              if ($page == 1) {
                 echo "
                 <li style=\"display: inline-block;\">
-                  <p>次へ</p>
+                先頭へ
                 </li>
                 ";
               }else{
                 echo "
                 <li style=\"display: inline-block;\">
-                  <a href =\"index.php?page=$next_page\">
-                    <p>次へ</p>
-                  </a>
+                <a href =\"index.php?page=1\">
+                先頭へ
+                </a>
                 </li>
                 ";
               }
-              if ($page == $last_page) {
+              if ($page == 1) {
                 echo "
                 <li style=\"display: inline-block;\">
-                  <p>最後へ</p>
+                前へ
                 </li>
                 ";
               }else{
                 echo "
                 <li style=\"display: inline-block;\">
-                  <a href =\"index.php?page=$last_page\">
-                    <p>最後へ</p>
-                  </a>
+                <a href =\"index.php?page=$pre_page\">
+                前へ
+                </a>
                 </li>
                 ";
               }
               ?>
+              </li>
 
-            </dl>
+              <?php for ($i=1; $i<=$last_page; $i++) : ?>
+                <li style="<?php if($i == $page) echo "font-weight:bolder; "; ?>display: inline-block;">
+                  <?php if($i != $page) echo "<a href =\"index.php?page=$i\">"; ?>
+                    <?php echo $i ?>
+                    <?php if($i != $page) echo "</a>" ?>
+                  </li>
+                <?php endfor; ?>
+
+                <?php
+                if ($page == $last_page) {
+                  echo "
+                  <li style=\"display: inline-block;\">
+                    <p>次へ</p>
+                  </li>
+                  ";
+                }else{
+                  echo "
+                  <li style=\"display: inline-block;\">
+                    <a href =\"index.php?page=$next_page\">
+                      <p>次へ</p>
+                    </a>
+                  </li>
+                  ";
+                }
+                if ($page == $last_page) {
+                  echo "
+                  <li style=\"display: inline-block;\">
+                    <p>最後へ</p>
+                  </li>
+                  ";
+                }else{
+                  echo "
+                  <li style=\"display: inline-block;\">
+                    <a href =\"index.php?page=$last_page\">
+                      <p>最後へ</p>
+                    </a>
+                  </li>
+                  ";
+                }
+                ?>
+              </ul>
+          </div>
         </div>
         </div>
       </div>
   </div>
-
-
 </body>
 </html>

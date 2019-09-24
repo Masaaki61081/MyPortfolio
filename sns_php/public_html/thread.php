@@ -94,23 +94,29 @@ $responses = $app->getValues()->responses;
           <h2>返信一覧</h2>
         </div>
         <div class="window_content">
-          <input type="submit" onclick="location.href='./index.php'" name="" value="スレッド一覧へ">
+          <input class="button" type="button" onclick="location.href='./index.php'" name="" value="スレッド一覧へ">
           <br>
-          <?= "<h4>", h($threadTitle), "</h4>" ?>
-          <br>
-          <dl>
+          <div class="window_content_title">
+            <?= "<h4>", h($threadTitle), "</h4>" ?>
+          </div>
+          <ul class="response">
 
-            <li>
               <?php foreach ($responses as $res): ?>
-                <div class="res">
-                  <a href="profile.php?user_id=<?= $res['writer'] ?>">
-                    <?= $res['comment_id'] , ":<img src=\"../picture/icon/" , $res['icon'] , "\" style=\"margin:0; border:2px black solid; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $res['username'] , "</p>:" ?>
-                  </a>
-                  <?= "<p style=\"display:inline-block;\">" , $res['content'] , "</p>" ; ?>
+                <li class="res">
+                <div class="res_block">
+                  <?= $res['comment_id'] ;?>
+                  <div class="res_block_userinfo">
+                    <a href="profile.php?user_id=<?= $res['writer'] ?>">
+                      <?= "<img src=\"../picture/icon/" , $res['icon'] , "\" style=\"margin:0; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $res['username'] , "</p>" ?>
+                    </a>
+                  </div>
+                  <div class="res_block_content">
+                    <?= "<p style=\"display:inline-block;\">" , $res['content'] , "</p>" ; ?>
+                  </div>
                 </div>
+              </li>
               <?php endforeach; ?>
-            </li>
-          </dl>
+          </ul>
 
         </div>
       </div>
@@ -128,8 +134,8 @@ $responses = $app->getValues()->responses;
             <textarea class="content" name="content" id="content" rows="8" cols="80"></textarea>
             <br>
             <p class="err"><?= h($app->getErrors('write')); ?></p>
-            <div class="btn" onclick="document.getElementById('postform').submit();">返信する</div>
-            <input class="input" type="reset" value="リセット">
+            <div class="button_submit" onclick="document.getElementById('postform').submit();">返信する</div>
+            <div class="button_submit" onclick="document.getElementById('postform').reset();">リセット</div>
           </form>
         </div>
       </div>

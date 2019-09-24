@@ -32,8 +32,8 @@ $app->run();
         <input type="password" name="password" placeholder="password">
       </p>
       <p class="err"><?= h($app->getErrors('password')); ?></p>
-      <div class="btn" onclick="document.getElementById('signup').submit();">Sign Up</div>
-      <p class="fs12"><a href="/public_html/login.php">Log In</a></p>
+      <div class="button_submit" onclick="document.getElementById('signup').submit();">Sign Up</div>
+      <p class="button_submit"><a href="/public_html/login.php">Log In</a></p>
       <!-- <input class="input" type="submit" name="SUBMIT" value="投稿"> -->
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </form>

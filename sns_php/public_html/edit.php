@@ -93,7 +93,7 @@ $app->run();
             <img src="../picture/icon/<?=h($app->me()->icon); ?>" style="margin:0; border:2px black solid; width:50px; height:50px; display:inline-block;">
             <input type="file" name="upload_file">
             <br>
-            <div class="btn" onclick="document.getElementById('postform').submit();">アイコンを変更する</div>
+            <div class="button_submit" onclick="document.getElementById('postform').submit();">アイコンを変更する</div>
             <p class="err"><?= h($app->getErrors('icon')); ?></p>
             <p class="err"><?= h($app->getErrors('write')); ?></p>
           </form>
