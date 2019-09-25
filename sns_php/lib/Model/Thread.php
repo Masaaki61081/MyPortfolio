@@ -67,9 +67,24 @@ class Thread extends \MyApp\Model {
     return $result;
   }
 
+  // public function getThread_list_page($page) {
+  //   $page = ($page - 1)*10;
+  //   $stmt = $this->db->prepare("SELECT * FROM thread_list ORDER BY id limit {$page} , 10");
+  //   $stmt->execute();
+  //   $result = $stmt->fetchALL(\PDO::FETCH_ASSOC);
+  //   return $result;
+  // }
+
   public function getThread_list_page($page) {
     $page = ($page - 1)*10;
-    $stmt = $this->db->prepare("SELECT * FROM thread_list ORDER BY id limit {$page} , 10");
+    $stmt = $this->db->prepare("SELECT t.id, t.title, t.modified, u.icon, u.username, c.content from thread_list as t
+    inner join comments as c
+    on t.id = c.thread_id
+    and c.comment_id = 1
+    inner join users as u
+    on c.writer =u.id
+    order by t.id
+    limit {$page} , 10");
     $stmt->execute();
     $result = $stmt->fetchALL(\PDO::FETCH_ASSOC);
     return $result;
@@ -102,8 +117,9 @@ class Thread extends \MyApp\Model {
     $result = $stmt->fetch(\PDO::FETCH_ASSOC);
     return $result['MAX(comment_id)'];
   }
+
   public function get_res($thread_id) {
-    $stmt = $this->db->prepare("SELECT comment_id,writer,content,username,icon FROM comments LEFT JOIN users ON comments.writer = users.id WHERE thread_id = {$thread_id} ");
+    $stmt = $this->db->prepare("SELECT comment_id,writer,content,username,icon FROM comments LEFT JOIN users ON comments.writer = users.id WHERE thread_id = {$thread_id} ORDER BY comment_id");
     $stmt->execute();
     $result = $stmt->fetchALL(\PDO::FETCH_ASSOC);
     return $result;

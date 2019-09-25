@@ -14,7 +14,11 @@ $app->run();
 <head>
   <meta charset="utf-8">
   <title>Sign Up</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/style_pc.css" media="screen and (min-width: 960px)">
+  <link rel="stylesheet" href="css/style_tab.css" media="screen and (max-width: 960px)">
+  <link rel="stylesheet" href="css/style_sp.css" media="screen and (max-width: 600px)">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript" src="menu.js"></script>
 </head>
 <body>
 <div class="wrapper">

@@ -32,67 +32,19 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
   <title>Home</title>
-  <link rel="stylesheet" href="css/style_sp.css" media="screen and (min-width: 960px)">
+  <link rel="stylesheet" href="css/style_pc.css" media="screen and (min-width: 960px)">
   <link rel="stylesheet" href="css/style_tab.css" media="screen and (max-width: 960px)">
-  <link rel="stylesheet" href="css/style_pc.css" media="screen and (max-width: 600px)">
+  <link rel="stylesheet" href="css/style_sp.css" media="screen and (max-width: 600px)">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text/javascript" src="menu.js"></script>
+  <script>
+    $(function() {
+      $("#header").load("header.php");
+    });
+  </script>
 </head>
 <body>
   <div class="wrapper">
-    <div class="header">
-      <div class="header_title">
-          <a href="index.php"><h3>掲示板</h3></a>
-      </div>
-      <div class="header_userinfo">
-        <div class="header_userinfo_icon">
-          <img src="../picture/icon/<?=h($app->me()->icon); ?>">
-        </div>
-        <nav class="menu_container">
-          <ul class="menu">
-            <div class="menu_userinfo">
-              <div class="menu_userinfo_icon">
-                <img src="../picture/icon/<?=h($app->me()->icon); ?>">
-              </div>
-              <div class="menu_userinfo_text">
-                <p>
-                  <?= h($app->me()->username) ?><br>
-                  <?= h($app->me()->email) ?>
-                </p>
-              </div>
-            </div>
-            <li class="menu_item">
-              <a href="edit.php">
-                <div class="menu_item_block">
-                  プロフィール編集
-                </div>
-              </a>
-            </li>
-            <li class="menu_item">
-              <a href="">
-                <div class="menu_item_block">
-                  メッセージ
-                </div>
-              </a>
-            </li>
-            <li class="menu_item">
-              <a href="">
-                <div class="menu_item_block">
-                  メニュー
-                </div>
-              </a>
-            </li>
-            <li class="menu_item">
-              <div class="menu_item_block" onclick="document.getElementById('logout').submit();" style="cursor:pointer;">
-                <form action="logout.php" method="post" id="logout" style="display:inline-block;">
-                  <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
-                  ログアウト
-                </form>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <div class="header" id="header">
     </div>
 
     <div class="container">
@@ -110,13 +62,13 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
                     <div class="thread_list_item">
                       <div class="thread_list_item_title">
                         <?= h($thread['id'].":")?><?=h($thread['title'])?>
-                        <span class="thread_list_item_info">
+                        <!-- <span class="thread_list_item_info">
                         最終更新日:
-                        </span>
+                        </span> -->
                       </div>
                       <div class="thread_list_item_content">
                         <div class="thread_list_item_content_user">
-                          ユーザー情報<?= h($thread['createdby']) ?>
+                          <?= "<img src=\"../picture/icon/" , $thread['icon'] , "\" style=\"margin:0; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $thread['username'] , "</p>" ?>
                         </div>
                         <div class="thread_list_item_content_text">
                           本文

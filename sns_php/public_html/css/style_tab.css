@@ -48,6 +48,7 @@ table {
   border-spacing: 0;
 }
 
+/*---------------------------------------------------------*/
 body {
   background-color: #fff6f3;
   font-size: 16px;
@@ -59,7 +60,7 @@ body {
   margin-bottom: auto;
 }
 
-.wrapper .header {
+.header {
   background-color: #ff6e40;
   color: #ff6e40;
   padding: 10px 30px;
@@ -68,35 +69,35 @@ body {
   z-index: 9999;
 }
 
-.wrapper .header .header_title {
+.header .header_title {
   display: inline-block;
   width: fit-content;
   vertical-align: bottom;
 }
 
-.wrapper .header .header_title a {
+.header .header_title a {
   text-decoration: none;
 }
 
-.wrapper .header .header_title h3 {
+.header .header_title h3 {
   display: block;
   font-size: 26px;
   color: #000000;
 }
 
-.wrapper .header .header_userinfo {
+.header .header_userinfo {
   display: inline-block;
   vertical-align: bottom;
   position: fixed;
   right: 30px;
 }
 
-.wrapper .header .header_userinfo .menu_container {
+.header .header_userinfo .menu_container {
   margin: 0;
   position: relative;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu {
+.header .header_userinfo .menu_container .menu {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   background-color: white;
   border: 1px solid silver;
@@ -110,19 +111,19 @@ body {
   padding: 0;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_userinfo {
+.header .header_userinfo .menu_container .menu .menu_userinfo {
   background-color: white;
   padding: 4px 8px;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_userinfo .menu_userinfo_icon {
+.header .header_userinfo .menu_container .menu .menu_userinfo .menu_userinfo_icon {
   display: inline-block;
   vertical-align: bottom;
   width: 50px;
   border-radius: 25px;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_userinfo .menu_userinfo_icon img {
+.header .header_userinfo .menu_container .menu .menu_userinfo .menu_userinfo_icon img {
   background-color: white;
   margin: 0;
   border-radius: 25px;
@@ -132,45 +133,45 @@ body {
   vertical-align: bottom;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_userinfo .menu_userinfo_text {
+.header .header_userinfo .menu_container .menu .menu_userinfo .menu_userinfo_text {
   display: inline-block;
   color: #000000;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_item {
+.header .header_userinfo .menu_container .menu .menu_item {
   flex: 1;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_item a {
+.header .header_userinfo .menu_container .menu .menu_item a {
   text-decoration: none;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_item .menu_item_block {
+.header .header_userinfo .menu_container .menu .menu_item .menu_item_block {
   background-color: #fff6f3;
   color: #000000;
   border-bottom: 1px solid silver;
   padding: 16px 8px;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_item .menu_item_block:hover {
+.header .header_userinfo .menu_container .menu .menu_item .menu_item_block:hover {
   opacity: 0.7;
 }
 
-.wrapper .header .header_userinfo .menu_container .menu .menu_item:last-child .menu_item_block {
+.header .header_userinfo .menu_container .menu .menu_item:last-child .menu_item_block {
   border-bottom: none;
 }
 
-.wrapper .header .header_userinfo .header_userinfo_icon {
+.header .header_userinfo .header_userinfo_icon {
   display: inline-block;
   vertical-align: bottom;
 }
 
-.wrapper .header .header_userinfo .header_userinfo_icon:hover {
+.header .header_userinfo .header_userinfo_icon:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.wrapper .header .header_userinfo .header_userinfo_icon img {
+.header .header_userinfo .header_userinfo_icon img {
   background-color: white;
   margin: 0;
   border-radius: 13px;
@@ -180,111 +181,119 @@ body {
   vertical-align: bottom;
 }
 
-.wrapper .container {
+.container {
   position: relative;
   top: 46px;
-  padding: 30px;
+  padding: 10px;
   margin-bottom: auto;
 }
 
-.wrapper .container .window {
+.window {
   margin-bottom: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   background-color: white;
 }
 
-.wrapper .container .window .window_title {
+.window .window_title {
   background-color: #ffa06d;
   padding: 4px 8px;
 }
 
-.wrapper .container .window .window_title h2 {
+.window .window_title h2 {
   font-size: 32px;
   background-color: #ffa06d;
   color: #000000;
 }
 
-.wrapper .container .window .window_content {
+.window .window_content {
   padding: 15px;
 }
 
-.wrapper .container .window .window_content .thread_list a {
+.window .window_content .thread_list a {
   text-decoration: none;
 }
 
-.wrapper .container .window .window_content .thread_list .thread_list_item {
+.window .window_content .thread_list .thread_list_item {
   color: #000000;
   margin: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
-.wrapper .container .window .window_content .thread_list .thread_list_item .thread_list_item_title {
+.window .window_content .thread_list .thread_list_item .thread_list_item_title {
   border-bottom: solid 2px #fff6f3;
 }
 
-.wrapper .container .window .window_content .thread_list .thread_list_item .thread_list_item_title .thread_list_item_info {
+.window .window_content .thread_list .thread_list_item .thread_list_item_title .thread_list_item_info {
   color: gray;
   position: absolute;
-  right: 50px;
+  right: 70px;
 }
 
-.wrapper .container .window .window_content .thread_list .thread_list_item .thread_list_item_content {
+.window .window_content .thread_list .thread_list_item .thread_list_item_content {
   padding: 5px;
 }
 
-.wrapper .container .window .window_content .thread_list .thread_list_item .thread_list_item_content .thread_list_item_content_user {
+.window .window_content .thread_list .thread_list_item .thread_list_item_content .thread_list_item_content_user {
   display: inline-block;
 }
 
-.wrapper .container .window .window_content .thread_list .thread_list_item .thread_list_item_content .thread_list_item_content_text {
+.window .window_content .thread_list .thread_list_item .thread_list_item_content .thread_list_item_content_user img {
+  border-radius: 50%;
+}
+
+.window .window_content .thread_list .thread_list_item .thread_list_item_content .thread_list_item_content_text {
   display: inline-block;
 }
 
-.wrapper .container .window .window_content .postform {
+.window .window_content .postform {
   margin: 15px;
 }
 
-.wrapper .container .window .window_content .button {
+.window .window_content .button {
   margin-left: 15px;
 }
 
-.wrapper .container .window .window_content .pagination {
+.window .window_content .pagination {
   margin: 15px;
 }
 
-.wrapper .container .window .window_content .response {
+.window .window_content .response {
   margin: 15px;
   border: solid 2px #fff6f3;
 }
 
-.wrapper .container .window .window_content .response .res .res_block {
+.window .window_content .response .res .res_block {
   padding: 4px;
   border-bottom: solid 2px #fff6f3;
 }
 
-.wrapper .container .window .window_content .response .res .res_block .res_block_userinfo {
+.window .window_content .response .res .res_block .res_block_userinfo {
   display: inline-block;
 }
 
-.wrapper .container .window .window_content .response .res .res_block .res_block_content {
+.window .window_content .response .res .res_block .res_block_content {
   display: inline-block;
 }
 
-.wrapper .container .window .window_content .response .res .res_block img {
+.window .window_content .response .res .res_block img {
   border-radius: 25px;
 }
 
-.wrapper .container .window .window_content .response .res:last-child .res_block {
+.window .window_content .response .res:last-child .res_block {
   border-bottom: none;
 }
 
-.wrapper .container .window .window_content .window_content_title {
+.window .window_content .window_content_title {
   margin: 15px;
 }
 
-.wrapper .container .window .window_content .window_content_title h4 {
+.window .window_content .window_content_title h4 {
   font-size: 20px;
   font-weight: bold;
+}
+
+textarea {
+  width: 90%;
 }
 
 .button {
@@ -310,4 +319,5 @@ body {
   position: relative;
   vertical-align: bottom;
   padding: 4px;
+  border: none;
 }

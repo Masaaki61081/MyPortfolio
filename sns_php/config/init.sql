@@ -54,3 +54,33 @@ create table comments (
 --   threadid int,
 --   commentid int
 -- );
+
+
+
+-- select t.id, c.comment_id, u.username from thread_list as t
+-- inner join comments as c
+-- on t.id = c.thread_id
+-- inner join users as u
+-- on c.writer =u.id
+-- order by t.id, c.comment_id;
+
+
+
+
+select t.id, t.title, t.modified, u.icon, u.username, c.content from thread_list as t
+inner join comments as c
+on t.id = c.thread_id
+and c.comment_id = 1
+inner join users as u
+on c.writer =u.id
+order by t.id;
+
+
+select t.id, t.title, t.modified, u.icon, u.username, c.content from thread_list as t
+inner join comments as c
+on t.id = c.thread_id
+and c.comment_id = 1
+inner join users as u
+on c.writer =u.id
+order by t.id
+limit 2,10;
