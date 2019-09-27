@@ -37,9 +37,9 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
   <link rel="stylesheet" href="css/style_sp.css" media="screen and (max-width: 600px)">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
-    $(function() {
-      $("#header").load("header.php");
-    });
+  $(function() {
+    $("#header").load("header.php");
+  });
   </script>
 </head>
 <body>

@@ -125,31 +125,6 @@ class Thread extends \MyApp\Model {
     return $result;
   }
 
-
-
-
-
-
-  // public function login($values) {
-  //   $stmt = $this->db->prepare("select * from users where email = :email");
-  //   $res = $stmt->execute([
-  //     ':email' => $values['email']
-  //   ]);
-  //   $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
-  //   $user = $stmt->fetch();
-  //
-  //   if (empty($user)) {
-  //     throw new \MyApp\Exception\UnmatchEmailOrPassword();
-  //   }
-  //
-  //   if (!password_verify($values['password'], $user->password)) {
-  //     throw new \MyApp\Exception\UnmatchEmailOrPassword();
-  //   }
-  //
-  //   return $user;
-  // }
-
-
 //for getting thread info
   public function findAll() {
     $stmt = $this->db->query("select * from thread_list order by id");

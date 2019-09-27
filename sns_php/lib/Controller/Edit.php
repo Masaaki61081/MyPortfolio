@@ -76,7 +76,7 @@ class Edit extends \MyApp\Controller {
     // var_dump($_FILES);
     // exit;
 
-    if (!isset($_FILES['upload_file']) || !isset($_FILES['upload_file']['error'])) {
+      if (!isset($_FILES['upload_file']) || !isset($_FILES['upload_file']['error'])) {
       throw new \MyApp\Exception\InvalidIcon();
     }
 
@@ -90,6 +90,10 @@ class Edit extends \MyApp\Controller {
     //     throw new \Exception('Err: ' . $_FILES['image']['error']);
     // }
 
-  }
+    }
+
+
+
+
 
 }
