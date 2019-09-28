@@ -61,7 +61,7 @@ $responses = $app->getValues()->responses;
                   <?= $res['comment_id'] ;?>
                   <div class="res_block_userinfo">
                     <a href="profile.php?user_id=<?= $res['writer'] ?>">
-                      <?= "<img src=\"../picture/icon/" , $res['icon'] , "\" style=\"margin:0; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $res['username'] , "</p>" ?>
+                      <?= "<img src=\"../picture/icon_thumbnail/" , $res['icon'] , "\" style=\"margin:0; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $res['username'] , "</p>" ?>
                     </a>
                   </div>
                   <div class="res_block_content">

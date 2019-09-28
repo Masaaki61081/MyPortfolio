@@ -68,7 +68,7 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
                       </div>
                       <div class="thread_list_item_content">
                         <div class="thread_list_item_content_user">
-                          <?= "<img src=\"../picture/icon/" , $thread['icon'] , "\" style=\"margin:0; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $thread['username'] , "</p>" ?>
+                          <?= "<img src=\"../picture/icon_thumbnail/" , $thread['icon'] , "\" style=\"margin:0; width:50px; height:50px; display:inline-block;\"><p style=\"display:inline-block;\">" , $thread['username'] , "</p>" ?>
                         </div>
                         <div class="thread_list_item_content_text">
                           本文

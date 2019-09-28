@@ -34,13 +34,13 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
 </div>
 <div class="header_userinfo">
   <div class="header_userinfo_icon">
-    <img src="../picture/icon/<?=h($app->me()->icon); ?>">
+    <img src="../picture/icon_thumbnail/<?=h($app->me()->icon); ?>">
   </div>
   <nav class="menu_container">
     <ul class="menu">
       <div class="menu_userinfo">
         <div class="menu_userinfo_icon">
-          <img src="../picture/icon/<?=h($app->me()->icon); ?>">
+          <img src="../picture/icon_thumbnail/<?=h($app->me()->icon); ?>">
         </div>
         <div class="menu_userinfo_text">
           <p>

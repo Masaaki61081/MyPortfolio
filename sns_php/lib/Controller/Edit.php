@@ -4,6 +4,8 @@ namespace MyApp\Controller;
 
 class Edit extends \MyApp\Controller {
 
+  private $_imageType;
+
   public function run() {
     if (!$this->isLoggedIn()) {
       // login
@@ -28,10 +30,17 @@ class Edit extends \MyApp\Controller {
     // validate
     try {
       $this->_validate();
+      $this->_validateImageType();
     } catch (\MyApp\Exception\InvalidIcon $e) {
       $this->setErrors('icon', $e->getMessage());
       return;
     }
+
+    // try {
+    // }catch (\MyApp\Exception\InvalidIcon $e) {
+    //   $this->setErrors('icon', $e->getMessage());
+    //   return;
+    // }
 
     if($this->hasError()) {
       return;
@@ -41,9 +50,11 @@ class Edit extends \MyApp\Controller {
         $id = $_POST['id'];
         $icon = $_FILES['upload_file']['name'];
 
-        $upload = '../picture/icon/'.$_FILES['upload_file']['name'];
+        $savePath = '../picture/icon/'.$_FILES['upload_file']['name'];
 
-        move_uploaded_file($_FILES['upload_file']['tmp_name'], $upload);
+        move_uploaded_file($_FILES['upload_file']['tmp_name'], $savePath);
+
+        $this->_createThumbnail($savePath);
 
 
 
@@ -73,9 +84,6 @@ class Edit extends \MyApp\Controller {
 
 
     private function _validate() {
-    // var_dump($_FILES);
-    // exit;
-
       if (!isset($_FILES['upload_file']) || !isset($_FILES['upload_file']['error'])) {
       throw new \MyApp\Exception\InvalidIcon();
     }
@@ -90,6 +98,64 @@ class Edit extends \MyApp\Controller {
     //     throw new \Exception('Err: ' . $_FILES['image']['error']);
     // }
 
+    }
+
+    private function _validateImageType() {
+      $this->_imageType = exif_imagetype($_FILES['upload_file']['tmp_name']);
+      switch($this->_imageType) {
+        case IMAGETYPE_GIF:
+          throw new \MyApp\Exception\InvalidIcon();
+        case IMAGETYPE_JPEG:
+          // return 'jpg';
+          continue;
+        case IMAGETYPE_PNG:
+          // return 'png';
+          continue;
+        default:
+          throw new \MyApp\Exception\InvalidIcon();
+      }
+
+    }
+
+    private function _createThumbnail($savePath) {
+      $imageSize = getimagesize($savePath);
+      $width = $imageSize[0];
+      $height = $imageSize[1];
+      if ($width > 500) {
+        $this->_createThumbnailMain($savePath, $width, $height);
+      }
+    }
+
+
+
+    private function _createThumbnailMain($savePath, $width, $height) {
+      switch($this->_imageType) {
+        // case IMAGETYPE_GIF:
+        //   $srcImage = imagecreatefromgif($savePath);
+        //   break;
+        case IMAGETYPE_JPEG:
+          $srcImage = imagecreatefromjpeg($savePath);
+          break;
+        case IMAGETYPE_PNG:
+          $srcImage = imagecreatefrompng($savePath);
+          break;
+      }
+      $thumbHeight = 500;
+      $thumbWidth = 500;
+      $thumbImage = imagecreatetruecolor($thumbWidth, $thumbHeight);
+      imagecopyresampled($thumbImage, $srcImage, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $width, $height);
+
+      switch($this->_imageType) {
+        // case IMAGETYPE_GIF:
+        //   imagegif($thumbImage, THUMBNAIL_DIR . '/' . $this->_imageFileName);
+        //   break;
+        case IMAGETYPE_JPEG:
+          imagejpeg($thumbImage, '../picture/icon_thumbnail/'.$_FILES['upload_file']['name']);
+          break;
+        case IMAGETYPE_PNG:
+          imagepng($thumbImage, '../picture/icon_thumbnail/'.$_FILES['upload_file']['name']);
+          break;
+      }
     }
 
 
