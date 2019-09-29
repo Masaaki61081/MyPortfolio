@@ -10,6 +10,8 @@
 - 開発環境  
    - vagrant  
 
-![テスト](https://github.com/Masaaki61081/MyPortfolio/blob/master/screenshot/%E5%9B%B31.png)  
+![画面１](https://github.com/Masaaki61081/MyPortfolio/blob/master/screenshot/%E5%9B%B31.png)  
+![画面２](https://github.com/Masaaki61081/MyPortfolio/blob/master/screenshot/%E5%9B%B32.png)  
+
 
 参考　ドットインストール  
