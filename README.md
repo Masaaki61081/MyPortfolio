@@ -2,13 +2,13 @@
 
 ログイン機能付き
 
-_使用言語
- _php
- _mysql
- _javascript(ヘッダーのみ)
+_ 使用言語
+ _ php
+ _ mysql
+ _ javascript(ヘッダーのみ)
 
-_開発環境
- _vagrant
+_ 開発環境
+ _ vagrant
 
 ![テスト](https://github.com/Masaaki61081/MyPortfolio/blob/master/screenshot/%E5%9B%B31.png)
 
