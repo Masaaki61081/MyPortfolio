@@ -49,6 +49,12 @@ class Thread extends \MyApp\Model {
     if ($res === false) {
       throw new \MyApp\Exception\WriteError();
     }
+    $stmt2 = $this->db->prepare("UPDATE thread_list SET modified = now() WHERE id={$values['thread_id']}");
+    $res2 = $stmt2->execute();
+    if ($res2 === false) {
+      throw new \MyApp\Exception\WriteError();
+    }
+
   }
 
 
@@ -83,7 +89,7 @@ class Thread extends \MyApp\Model {
     and c.comment_id = 1
     inner join users as u
     on c.writer =u.id
-    order by t.id
+    order by t.modified DESC
     limit {$page} , 10");
     $stmt->execute();
     $result = $stmt->fetchALL(\PDO::FETCH_ASSOC);
