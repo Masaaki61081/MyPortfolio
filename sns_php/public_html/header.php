@@ -59,14 +59,14 @@ $thread_list_page = $thread_Model->getThread_list_page($page);
       <li class="menu_item">
         <a href="">
           <div class="menu_item_block">
-            メッセージ
+            メッセージ(未)
           </div>
         </a>
       </li>
       <li class="menu_item">
         <a href="">
           <div class="menu_item_block">
-            フレンド
+            フレンド（未）
           </div>
         </a>
       </li>
