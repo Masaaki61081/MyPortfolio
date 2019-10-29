@@ -8,7 +8,9 @@
    - javascript(ヘッダーのみ)  
 
 - 開発環境  
-   - vagrant  
+   - vagrant
+   - virtualbox  
+   - CentOS6  
 
 ![画面１](https://github.com/Masaaki61081/MyPortfolio/blob/master/screenshot/%E5%9B%B31.png)  
 スレッド一覧
